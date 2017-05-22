@@ -4,10 +4,14 @@
 //    Purpose: Example of ServoIn usage
 //
 //    Author: Richard Nash
-//    Version: 1.0.1
 
 // The ServoIn library is intended to be like the Servo library, except
 // for reading server values. Please see the documentation on Servo.
+
+// To run this example you need to have a six channel RC receiver hooked up to your
+// Photon or Electron. If you want to start smaller, just cut this down to a single channel
+// example.
+// See the wiring nots in the README.md file on github.
 
 #include "ServoIn.h"
 

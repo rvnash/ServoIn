@@ -4,7 +4,6 @@
 //    Purpose: Read servo signals
 //
 //    Author: Richard Nash
-//    Version: 1.0.1
 
 // This class provides interrupt driven read of Servo pulses from
 // a remote control device, like for RC vehicles.
@@ -22,28 +21,41 @@ class ServoIn
 {
 public:
   const static int NO_SIGNAL = -99999;
-  const static int MAX_CHANNELS = 6;
 
+  // Servo Functions
+  
+  // Constructor
   ServoIn();
+  
+  // Attaches this ServoIn object to a pin.
+  // pin - Pin number (eg. D1, D2, ...) attached pin must be able to attachInterrupts
+  // Returns true if the attach worked, false otherwise.
   bool attach(int pin);
-  int read();
-  int readMicroseconds();
+  
+  // Returns true if the attach worked, false otherwise.
   bool attached();
+  
+  // Detaches pin from the interrupt and puts it in the detached state.
   void detach();
+  
+  // Returns the servo "angle" read from the pin. Generally it will be in the range 0..180,
+  // with 90 being the "center" position. But for some RC systems values can go outside
+  // this range.
+  // Returns NO_SIGNAL, if a valid servo signal is not recieved.
+  int read();
+  
+  // Returns the number of microseconds of the last pulse recieved. Generally it will
+  // be in the range 1000..2000, with 1500 being the center position. But for some RC systems
+  // the values may go outside the range.
+  // Returns NO_SIGNAL, if a valid servo signal is not recieved.
+  int readMicroseconds();
+
+  // Interrupt service routine, not meant to be called publicly
+  void ISR();
 
 private:
-  void ISR();
-  static ServoIn *attachedObjects[MAX_CHANNELS];
-  // If you change MAX_CHANNELS you need to add more static
-  // definitions of ISR routines
-  static void ISR0() { ServoIn::attachedObjects[0]->ISR(); }
-  static void ISR1() { ServoIn::attachedObjects[1]->ISR(); }
-  static void ISR2() { ServoIn::attachedObjects[2]->ISR(); }
-  static void ISR3() { ServoIn::attachedObjects[3]->ISR(); }
-  static void ISR4() { ServoIn::attachedObjects[4]->ISR(); }
-  static void ISR5() { ServoIn::attachedObjects[5]->ISR(); }
-
   int pin;
+  int attachedISRIndex;
   volatile int currentUS;
   volatile unsigned long readingValidAtUS;
   volatile unsigned long riseTimeUS;
