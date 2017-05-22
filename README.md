@@ -28,6 +28,18 @@ documentation on which pins support interrupts. D1-D7 are good choices as they
 meet both of these requirements. See the photo for the wiring that works with
 the code example given here.
 
+Wiring Picture 1:
+
+![alt text](https://raw.githubusercontent.com/rvnash/ServoIn/master/picts/Wiring1.jpg)
+
+Wiring Picture 2:
+
+![alt text](https://raw.githubusercontent.com/rvnash/ServoIn/master/picts/Wiring2.jpg)
+
+Wiring Picture 3:
+
+![alt text](https://raw.githubusercontent.com/rvnash/ServoIn/master/picts/Wiring3.jpg)
+
 ## LICENSE
 
 See LICENSE
