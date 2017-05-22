@@ -4,7 +4,7 @@
 //    Purpose: Example of ServoIn usage
 //
 //    Author: Richard Nash
-//    Version: 1.0.0
+//    Version: 1.0.1
 
 // The ServoIn library is intended to be like the Servo library, except
 // for reading server values. Please see the documentation on Servo.

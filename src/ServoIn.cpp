@@ -3,7 +3,7 @@
 //    Purpose: Implementation of read servo signals
 //
 //    Author: Richard Nash
-//    Version: 1.0.0
+//    Version: 1.0.1
 
 #include "ServoIn.h"
 

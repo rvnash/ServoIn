@@ -4,7 +4,7 @@
 //    Purpose: Read servo signals
 //
 //    Author: Richard Nash
-//    Version: 1.0.0
+//    Version: 1.0.1
 
 // This class provides interrupt driven read of Servo pulses from
 // a remote control device, like for RC vehicles.
